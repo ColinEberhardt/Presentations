@@ -1,0 +1,18 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "semi": 2,
+    "no-undef": 2
+  },
+  "globals": {
+    "fetch": true,
+    "console": true,
+    "module": true
+  }
+}
