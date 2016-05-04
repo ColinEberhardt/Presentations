@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#ddd'
   },
   title: {
-    fontSize: 20,
+    fontSize: 25,
     flex: 2.5,
     fontWeight: 'bold'
   },

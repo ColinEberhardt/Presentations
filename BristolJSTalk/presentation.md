@@ -54,7 +54,7 @@ Mobile Web, Wrapper, Native, Hybrid, yadda yadda ...
 # Native-UI
 
 - Air (ActionScript)
-- Titanim (JS)
+- Titanium (JS)
 - Xamarin (C#)
 - Delphi (Object Pascal)
 - ReactNative (JS)
@@ -277,6 +277,11 @@ class: vertical-center, image
 ![](assets/ReactJS.png)
 
 <!-- https://sketchboard.me/jzBb9OmZopSV -->
+
+---
+class: vertical-center
+
+unidirectional data-flows are simple
 
 ---
 class: middle, chapter
