@@ -1,0 +1,168 @@
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+body {
+  font-family: 'Droid Serif';
+}
+
+code {
+  color: darkred;
+}
+
+.small .remark-code {
+  font-size: 6px !important;
+}
+
+.left, .right {
+  float: left;
+  margin-left: 10%;
+  width: 40%
+}
+
+pre {
+  margin: 0 0 10px 0;
+}
+
+.hljs-comment {
+  background-color: yellow
+}
+
+blockquote {
+  background-image: url(assets/quote-mark.png);
+  background-repeat: no-repeat;
+  font-style: italic;
+  padding-left: 60px;
+  display: inline-block;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+blockquote p {
+  margin: 0;
+}
+
+h1, h2, h3 {
+  font-family: 'Yanone Kaffeesatz';
+  font-weight: normal;
+  color: #0b515f;
+}
+
+li {
+  margin-top: 13px;
+}
+
+h1 {
+  margin-top: 0 !important;
+}
+
+.remark-slide-number {
+  display: none;
+}
+.remark-code, .remark-inline-code {
+  font-family: 'Ubuntu Mono';
+}
+.remark-code {
+  font-size: 22px;
+}
+
+.white {
+  background-color: white !important;
+}
+
+.chapter {
+  background-color: #666 !important;
+}
+
+.chapter h1 {
+  color: #eee;
+}
+
+.chapter h2 {
+  color: #eee;
+}
+
+.chapter p {
+  color: #bbb;
+}
+
+.remark-slide-content {
+  background-color: #eee;
+  color: #777;
+  font-size: 30px !important;
+  padding: 1em !important;
+}
+
+a, a:hover, a:visited {
+  color: #0b515f;
+}
+
+.vertical-center {
+  vertical-align: middle;
+}
+
+/* for slides with a single image, scale the image to fit */
+div.image img {
+  max-height: 500px;
+  max-width: 800px;
+}
+
+div.image p {
+  text-align: center;
+}
+
+.stretch img {
+  min-width: 500px;
+}
+
+.small-anchor a {
+  font-size: 15px;
+  text-align: right;
+}
+
+/* ensure code and lists are never center aligned */
+ul, code {
+  text-align: left;
+}
+
+/* Two-column layout */
+.left-column {
+  font-size: 0.7em;
+  text-align: left;
+  width: 30%;
+  color: #777;
+  height: 92%;
+  float: left;
+}
+
+ul, li {
+  margin-left: 0;
+}
+
+.left-column > :first-child,
+.right-column > :first-child {
+  margin-top: 0;
+}
+
+.left-column h2:last-of-type, .left-column h3:last-child {
+  color: #000;
+}
+
+.right-column {
+  width: 65%;
+  float: right;
+}
+
+.click-counter button {
+  padding: 20px;
+  font-size: 30px;
+  background-color: #9ccc65;
+  border: 0;
+  color: white;
+  outline: none;
+  border-radius: 10px;
+}
+
+.click-counter button.warning {
+  background-color: #ed5f98;
+}
