@@ -8,7 +8,7 @@ class: middle, chapter
 
 ## @ColinEberhardt / Scott Logic
 
-UBS TechConf, Sept 2016
+Morgan Stanley, Oct 2016
 
 ---
 class:  image
@@ -26,6 +26,12 @@ class:  image
 ![](assets/saxo_go.png)
 
 ---
+class:  image, white
+
+![](assets/Morgan-Stanley-Logo.jpg)
+
+
+---
 
 class: middle, chapter
 
@@ -33,7 +39,7 @@ class: middle, chapter
 
 ## @ColinEberhardt / Scott Logic
 
-UBS TechConf, Sept 2016
+Morgan Stanley, Sept 2016
 
 ---
 class: middle
@@ -451,12 +457,6 @@ class:  white, image, vertical-center,
 ![](assets/redux.png)
 
 ---
-class:  white, image, vertical-center,
-
-## ... yes ... the store is a singleton
-### (a well-turned architectural hack)
-
----
 class:  middle
 
 # And it works on mobile too!
@@ -545,4 +545,4 @@ class: middle, chapter
 
 ## @ColinEberhardt / Scott Logic
 
-UBS TechConf, Sept 2016
+Morgan Stanley, Oct 2016
