@@ -403,6 +403,21 @@ class:  white, image, vertical-center,
 ![](assets/hmr.jpg)
 
 ---
+class:  white, image, vertical-center,
+
+![](assets/hmr.jpg)
+
+---
+class:  white, image, vertical-center,
+
+![](assets/comment.png)
+
+---
+class:  white, image, vertical-center,
+
+![](assets/hmr-code.png)
+
+---
 
 # Hmmm ....
 
@@ -437,7 +452,6 @@ class:  vertical-center
  - Refactor UI into new components
  - Update presentation logic
  - Change formatting logic
- - Update business logic
  - Fix issues with wiring up state to the view
 
 --
@@ -485,6 +499,11 @@ class:  middle
 class:  middle
 
 (mobile demo time)
+
+---
+class:  image, vertical-center
+
+![](assets/ReactNative.png)
 
 ---
 class: vertical-center
