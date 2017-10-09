@@ -13,3 +13,4 @@ A collection of presentations, all making use of [remark.js](https://remarkjs.co
  - [27 Apr 2016](BristolJSTalk) - "Geeking out about ReactNative" - BristolJS
  - [23 Sept 2015](Monoliths-To-Components-With-D3) - "From monoliths to components with D3" - London D3JS Meetup
  - [15 Oct 2015](BristechTalk) - "Geeking out about ReactNative" - BrisTech Conference
+ - [10 April 2015](CrossPlatformMobile) - "Cross platform mobile, Looking beyond the HTML5 hype" - HSBC Tech Talk
