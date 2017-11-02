@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WebAssembly</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="style.css"/>
+    <style>
+    #performance {
+      width: 100%;
+      height: 470px;
+      position: relative;
+    }
+
+    #performance text {
+      font-size: 15px;
+    }
+
+    .y-axis-label {
+      transform: rotate(-90deg) translateY(20px) !important;
+      white-space: nowrap;
+    }
+
+    #performance .legend {
+      position: absolute;
+      bottom: auto;
+      right: 0;
+      left: auto;
+      top: 0;
+      width: 120px;
+      font-size: 12px;
+    }
+
+    .annotation-line line {
+      stroke: black;
+      stroke-thickness: 2px;
+    }
+
+    .x-axis .domain {
+      display: none;
+    }
+    </style>
+  </head>
+  <body>
+    <script src="lib/remark.js"></script>
+    <script>
+      var slideshow = remark.create({
+        sourceUrl: 'presentation.md',
+        highlightStyle: 'github'
+      });
+    </script>
+    <script src="https://unpkg.com/d3@4.6.0"></script>
+    <script src="https://unpkg.com/d3fc@12.1.0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.18.0/d3-legend.min.js"></script>
+    <script>
+      var color = d3.scaleOrdinal()
+          .range(["#98abc5", "#6b486b",  "#ff8c00"]);
+
+      var legend = d3.legendColor()
+        .orient('vertical')
+        .shapeWidth(20)
+        .scale(color);
+
+      var yExtent = fc.extentLinear()
+        .accessors([(d) => d.map((e) => e[1])])
+        .include([0]);
+
+      const csv = `Mode,Chrome-61,FireFox-56,Safari-11
+        JavaScript,579,570,549
+        WASM,664,641,618
+        AssemblyScript,646,660,644
+        asmjs,909,585,535
+        Emscripten,618,550,544`;
+
+      const data = d3.csvParse(csv);
+
+      var group = fc.group()
+        .key("Mode");
+      var series = group(data);
+
+      var ages = series.map(d => d.key);
+      color.domain(ages);
+
+      var groupedBar = fc.seriesSvgGrouped(fc.seriesSvgBar())
+          .crossValue(d => d[0])
+          .mainValue(d => d[1])
+          .decorate((sel, data, index) => {
+            sel.enter()
+              .select('path')
+              .attr('fill', color(ages[index]));
+          });
+
+      var annotation = fc.annotationSvgLine();
+
+      var multi = fc.seriesSvgMulti()
+      	.series([groupedBar, annotation])
+        .mapping((data, index, series) => {
+            switch(series[index]) {
+              case annotation:
+                return [464];
+              case groupedBar:
+                return data;
+            }
+          });
+
+      var chart = fc.chartSvgCartesian(
+            d3.scalePoint(),
+            d3.scaleLinear()
+          )
+          .xDomain(data.map(d => d.Mode))
+          .xPadding(0.5)
+          .yLabel('Render time (ms)')
+          .yDomain(yExtent(series))
+          .yTickFormat(d3.format(".2s"))
+          .yOrient('left')
+          .plotArea(multi)
+          .decorate((selection) => {
+            selection.enter()
+              .append('svg')
+              .attr('class', 'legend');
+
+            selection.select('.legend')
+              .call(legend);
+          });
+
+      d3.select('#performance')
+          .datum(series)
+          .call(chart);
+
+
+    </script>
+  </body>
+</html>
