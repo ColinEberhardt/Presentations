@@ -6,7 +6,7 @@ class: center, middle, chapter
 # WebAssembly
 ## and the death of JavaScript?
 • • •
-## Colin Eberhardt, Scott Logic
+## @ColinEberhardt, Scott Logic
 
 
 ---
@@ -49,6 +49,9 @@ class: center, middle
 class: center, middle
 
 # 2018 - JavaScript (still!)
+
+--
+
 ## ... but the way we are using it has changed
 
 ---
@@ -181,19 +184,147 @@ class: image, middle
 ---
 class: center, middle, chapter
 
-# WebAssembly Demo
+# WebAssembly In Practice
 
-<!--
-Demo #1 - add
-- Demo a simple add function written in C
-- Show how it compiles to a binary format
-- Quick demo of WAT - stack machine
-- Modules loaded via JavaScript
-- Functions exported / imported
+---
+class: center, middle, chapter
 
-Demo #2 - strings
-- talk about the interface issue, only 4 types
--->
+# WebAssembly In Practice
+
+---
+class: offtop
+
+~~~c
+float power(float number, int pow) {
+  float res = number;
+  for (int i = 0;i < pow - 1; i++) {
+    res = res * number;
+  }
+  return res;
+}
+
+~~~
+
+---
+class: offtop
+
+~~~
+$ xxd add.wasm
+00000000: 0061 736d 0100 0000 0107 0160 027d 7f01  .asm.......`.}..
+00000010: 7d03 0201 0004 0401 7000 0005 0301 0001  }.......p.......
+00000020: 0712 0206 6d65 6d6f 7279 0200 0570 6f77  ....memory...pow
+00000030: 6572 0000 0a33 0131 0101 7d02 4020 0141  er...3.1..}.@ .A
+00000040: 0248 0d00 2001 417f 6a21 0120 0021 0203  .H.. .A.j!. .!..
+00000050: 4020 0220 0094 2102 2001 417f 6a22 010d  @ . ..!. .A.j"..
+00000060: 000b 2002 0f0b 2000 0b                   .. ... ..
+~~~
+
+---
+class: middle, small
+
+~~~
+(module
+ (table 0 anyfunc)
+ (memory $0 1)
+ (export "memory" (memory $0))
+ (export "power" (func $power))
+ (func $power (param $0 f32) (param $1 i32) (result f32)
+  (local $2 f32)
+  (block $label$0
+   (br_if $label$0
+    (i32.lt_s
+     (get_local $1)
+     (i32.const 2)
+    )
+   )
+   (set_local $1
+    (i32.add
+     (get_local $1)
+     (i32.const -1)
+    )
+   )
+   (set_local $2
+    (get_local $0)
+   )
+   (loop $label$1
+    (set_local $2
+     (f32.mul
+      (get_local $2)
+      (get_local $0)
+     )
+    )
+    (br_if $label$1
+     (tee_local $1
+      (i32.add
+       (get_local $1)
+       (i32.const -1)
+      )
+     )
+    )
+   )
+   (return
+    (get_local $2)
+   )
+  )
+  (get_local $0)
+ )
+)
+~~~
+
+---
+class: center, offtop
+
+~~~javascript
+// read the binary into a buffer
+const fs = require("fs");
+const buf = fs.readFileSync("./add.wasm");
+
+// create a wasm module
+const wasmModule = new WebAssembly.Module(new Uint8Array(buf));
+
+// construct an instance of the module
+const wasmInstance = new WebAssembly.Instance(wasmModule);
+
+// invoke the exported function
+const result = wasmInstance.exports.power(2, 3)
+console.log(result);
+~~~
+
+---
+class: center, offtop
+
+~~~c
+char *message = "hello wasm!";
+
+char *getMessageRef()
+{
+  return message;
+}
+~~~
+
+---
+class: center, offtop
+
+~~~javascript
+const { TextDecoder } = require("util");
+
+// read the binary into a buffer
+const fs = require("fs");
+const buf = fs.readFileSync("./string.wasm");
+
+// create a module and an instance
+const wasmModule = new WebAssembly.Module(new Uint8Array(buf));
+const wasmInstance = new WebAssembly.Instance(wasmModule);
+
+// obtain a reference to linear and read the string
+const linearMemory = wasmInstance.exports.memory;
+const offset = wasmInstance.exports.getMessageRef();
+const buffer = new Uint8Array(linearMemory.buffer, offset, 12);
+
+// decode and log
+const str = new TextDecoder("utf-8").decode(buffer);
+console.log(str);
+~~~
 
 ---
 class: center, offtop
@@ -289,6 +420,31 @@ https://bl.ocks.org/ColinEberhardt/6ceb7ca74aabac9c8534d7120d31b382
 ---
 class: center, offtop
 
+~~~javascript
+simulation = d3.forceSimulation()
+    .force("link", d3.forceLink().id(function(d) { return d.id; }))
+    .force("charge", d3.forceManyBody())
+    .force("center", d3.forceCenter(width / 2, height / 2));
+
+function ticked() {
+  simulation.tick();
+  link
+      .attr('x1', d => d.source.x)
+      .attr('y1', d => d.source.y)
+      .attr('x2', d => d.target.x)
+      .attr('y2', d => d.target.y);
+
+  node
+      .attr('cx', d => d.x)
+      .attr('cy', d => d.y);
+}
+
+setInterval(ticked, 25);
+~~~
+
+---
+class: center, offtop
+
 # Rust
 
 - Doesn’t require a GC
@@ -350,17 +506,14 @@ class: center, offtop
 - Another wave of mobile, desktop and server-side UI frameworks will re-target the web
   - write once, run everywhere
 
-
 --
 - Performance gains fail to materialise, with backlash from early adopters
 
-
 --
-- Heavyweight productivity tools all start moving to the web (e.g. Photoshop, AutoCAD)
-
+- Heavyweight productivity tools start moving to the web (e.g. Photoshop, AutoCAD)
 
 ---
-class: center, offset
+class: center, offtop
 
 # 2020 - and beyond
 
