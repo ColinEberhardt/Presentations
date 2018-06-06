@@ -191,18 +191,20 @@ class: center
 
 # Building WebAssembly
 
+<br/>
+
 ```
   clang        llc (Fastcomp)   BinaryEn (asm2wasm)
     |                  |            |
 c  ==>  LLVM bitcode  ==>  asmjs   ==>  wasm
 ```
 
+<br/>
+
+
 or WasmFiddle!
 
 https://wasdk.github.io/WasmFiddle//?yi3bz
-https://wasdk.github.io/WasmFiddle//?14is9b
-https://wasdk.github.io/WasmFiddle//?z80z3
-https://wasdk.github.io/WasmFiddle//?vpki7
 
 ---
 class: image
@@ -286,3 +288,10 @@ class: center
 
 http://webassembly.org/docs/future-features/
 https://wasmdash.appspot.com/
+
+---
+class: center, middle, chapter
+
+# WebAssembly
+## The future of web development?
+## Colin Eberhardt

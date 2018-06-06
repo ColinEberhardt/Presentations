@@ -2,6 +2,11 @@
 
 A collection of presentations, (almost) all making use of [remark.js](https://remarkjs.com/#1).
 
+ - [16 May 2018](FrontEndgineers) - "WebAssembly and the future of JavaScript?" - Front Endgineers London
+ - [15 May 2018](FinJS-London-2018) - "WebAssembly and the future of JavaScript?" - FinJS London 2018
+ - [20 March 2018](FinJS-NY-2018) - "WebAssembly and the future of JavaScript?" - FinJS NY 2018
+ - [5 March 2018](QCon) - "WebAssembly and the death of JavaScript?" - QCon London 2018
+ - [28 Nov 2017](ServerlessJavaScript/Serverless-JavaScript-FinJS.key) - Serverless JavaScript - FinJS London 2017
  - [Oct 2017](WebAssembly) - "WebAssembly - the future of web development?" - an internal tech talk
  - [21 June 2017](ContainerJS.key) - An overview of our work on ContainerJS - Symphony Foundation Annual Members Meeting
  - [4 May 2017](BristechMeetup) - "Time travel and the future of HTML5 productivity" - Bristech Meetup
