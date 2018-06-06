@@ -1,0 +1,14 @@
+desktop #1 ...
+- Atom open on ttt project
+- Terminal, 'npm start'
+- Terminal, 'npm run remotedev'
+- Terminal, ready to run 'npm run openfin-mac'
+- Chrome open on 'localhost:3000' at login page
+- Code on 'hack' commit
+- Check with dev tools that there are no issues
+- Remote dev tools open on monitor view (minimise)
+
+desktop #2 ...
+- Atom open on MeetupApp Project
+- 'react-native run-ios'
+- Enable hot reload
