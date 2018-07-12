@@ -424,7 +424,7 @@ class: middle, chapter
 
 # But what about state changes?
 
-(desktop demo time)
+(demo time)
 
 ---
 
@@ -452,16 +452,9 @@ class:  white, image, vertical-center,
 ![](assets/redux.png)
 
 ---
-class:  white, image, vertical-center,
-
-## ... yes ... the store is a singleton
-
----
 class:  middle
 
 # And it works on mobile too!
-
-(mobile demo time)
 
 ---
 class:  white, image, vertical-center,

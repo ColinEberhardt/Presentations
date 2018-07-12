@@ -2,6 +2,7 @@
 
 A collection of presentations, (almost) all making use of [remark.js](https://remarkjs.com/#1).
 
+ - [12 July 2018](FullStackLondon) - "WebAssembly and the future of JavaScript?" - Full Stack London 2018
  - [7 June 2018](Broadridge) - "Transforming Development Productivity with Hot-Reload and Time Travel" - Broadridge Lunch and Learn
  - [16 May 2018](FrontEndgineers) - "WebAssembly and the future of JavaScript?" - Front Endgineers London
  - [15 May 2018](FinJS-London-2018) - "WebAssembly and the future of JavaScript?" - FinJS London 2018

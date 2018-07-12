@@ -1,0 +1,3 @@
+[submodule "FullStackLondon/remark-scott-logic"]
+	path = FullStackLondon/remark-scott-logic
+	url = https://github.com/ScottLogic/remark-scott-logic.git

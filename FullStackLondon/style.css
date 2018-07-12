@@ -1,0 +1,29 @@
+.image-stretch img {
+  width: 100%;
+}
+
+code {
+  width: 75%;
+}
+
+video { 
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.small .remark-code {
+  font-size: 13px !important;
+}
+
+.large .remark-code {
+  font-size: 23px !important;
+}
+
+.small-list {
+  font-size: 17px !important;
+}
