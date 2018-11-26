@@ -7,3 +7,6 @@
 [submodule "SLTechTalk/remark-scott-logic"]
 	path = SLTechTalk/remark-scott-logic
 	url = https://github.com/ScottLogic/remark-scott-logic.git
+[submodule "OSSF/remark-scott-logic"]
+	path = OSSF/remark-scott-logic
+	url = https://github.com/ScottLogic/remark-scott-logic.git
