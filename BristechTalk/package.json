@@ -4,7 +4,7 @@
   "description": "",
   "author": "Colin Eberhardt",
   "dependencies": {
-    "jquery": "^2.1.4",
+    "jquery": "^3.4.1",
     "knockout": "^3.3.0",
     "react": "^0.14.0",
     "react-dom": "^0.14.0"
